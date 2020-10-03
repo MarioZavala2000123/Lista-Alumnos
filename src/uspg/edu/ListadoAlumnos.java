@@ -9,7 +9,7 @@ package uspg.edu;
 
 /**
  *
- * @author mario
+ * @author marioz
  */
 public class ListadoAlumnos {
 
