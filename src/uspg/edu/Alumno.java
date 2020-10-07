@@ -21,8 +21,9 @@ public class Alumno {
     double total;
     
     Alumno(){}
-    
-    public Alumno(int noAlumno, String nombre, String apellido, double carné, double parcial_1, double parcial_2, double examenFinal, double zona, double total) {
+
+    public Alumno(int noAlumno, String nombre, String apellido, double carné,
+            double parcial_1, double parcial_2, double examenFinal) {
         this.noAlumno = noAlumno;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -30,10 +31,9 @@ public class Alumno {
         this.parcial_1 = parcial_1;
         this.parcial_2 = parcial_2;
         this.examenFinal = examenFinal;
-        this.zona = zona;
-        this.total = parcial_1+parcial_2+examenFinal+zona;  
+         this.total = parcial_1+parcial_2+zona+examenFinal;
     }
-
+    
     public int getNoAlumno() {
         return noAlumno;
     }
