@@ -13,7 +13,7 @@ public class Alumno {
     int noAlumno;
     String nombre;
     String apellido;
-    double carné;
+    double carnet;
     double parcial_1;
     double parcial_2;
     double examenFinal;
@@ -22,12 +22,12 @@ public class Alumno {
     
     Alumno(){}
 
-    public Alumno(int noAlumno, String nombre, String apellido, double carné,
+    public Alumno(int noAlumno, String nombre, String apellido, double carnet,
             double parcial_1, double parcial_2, double examenFinal) {
         this.noAlumno = noAlumno;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.carné = carné;
+        this.carnet = carnet;
         this.parcial_1 = parcial_1;
         this.parcial_2 = parcial_2;
         this.examenFinal = examenFinal;
@@ -58,12 +58,12 @@ public class Alumno {
         this.apellido = apellido;
     }
 
-    public double getCarné() {
-        return carné;
+    public double getCarnet() {
+        return carnet;
     }
 
-    public void setCarné(double carné) {
-        this.carné = carné;
+    public void setCarnet(double carnet) {
+        this.carnet = carnet;
     }
 
     public double getParcial_1() {
