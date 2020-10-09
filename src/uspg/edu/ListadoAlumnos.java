@@ -33,6 +33,8 @@ public class ListadoAlumnos {
         double examenFinal;
         char ingresaRegistro = 'n';
         int opcion = 0;
+        
+        int valor, nuevoValor,indice;
 
         do {
             System.out.println("-------*MENÚ*---------");
@@ -78,8 +80,8 @@ public class ListadoAlumnos {
                         System.out.print("Respuesta: ");
                         ingresaRegistro = sc.next().charAt(0);
                     } while (ingresaRegistro == 's');
-
                     break;
+                    
                 case 2:
                     System.out.println("\t---Ver Notas--- ");
 
@@ -97,9 +99,28 @@ public class ListadoAlumnos {
                                 + "\t" + alumno.getTotal());
                     }
                     break;
-
+                    
+                case 3:
+                    System.out.println("\t---Modificar---");
+                    
+                    System.out.print("El número del alumno que desea modificar: ");
+                    noAlumno = sc.nextInt();
+                    
+                    indice = listAlumnos.indexOf(noAlumno);
+                    
+                    if (indice != -1) {
+                        
+                        System.out.println("Nuevo Valor: ");
+                        nuevoValor = sc.nextInt();
+                        listAlumnos.set(indice, nuevoValor);
+                        
+                    } else {
+                        System.out.println("Dato no se encuentra");
+                    }
+                    
             }
-        } while (opcion != 3);
+            
+        } while (opcion != 4);
 
     }
 }

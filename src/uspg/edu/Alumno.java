@@ -5,6 +5,8 @@
  */
 package uspg.edu;
 
+import java.util.Scanner;
+
 /**
  *
  * @author marioz
