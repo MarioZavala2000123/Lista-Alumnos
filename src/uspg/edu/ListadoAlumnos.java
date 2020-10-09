@@ -31,58 +31,75 @@ public class ListadoAlumnos {
         double parcial_2;
         double zona;
         double examenFinal;
-        double total;
         char ingresaRegistro = 'n';
-        
-        System.out.println("---------------------------------------------------");
-        System.out.println("Bienvenidos a la base de datos de Escuela Nacional");
-        System.out.println("---------------------------------------------------\n");
+        int opcion = 0;
+
         do {
+            System.out.println("-------*MENÚ*---------");
+            System.out.println("Seleccione la acción que desea realizar");
+            System.out.println("1. Ingresar datos alumnos");
+            System.out.println("2. Mostrar información ingresada ");
+            System.out.println("3. Salir ");
+            System.out.print("--Opción: ");
+            opcion = sc.nextInt();
 
-            System.out.println("Ingresar datos de los estudiantes:");
-            System.out.print("Número de alumno:");
-            noAlumno = sc.nextInt();
-            System.out.print("Nombre:");
-            nombre = sc.next();
-            System.out.print("Apellido:");
-            apellido = sc.next();
-            System.out.print("Carné:");
-            carnet = sc.nextInt();
-            System.out.print("Parcial numero uno:");
-            parcial_1 = sc.nextDouble();
-            System.out.print("Parcial numero dos:");
-            parcial_2 = sc.nextDouble();
-            System.out.print("Zona del alumno:");
-            zona = sc.nextDouble();
-            System.out.print("Examen final:");
-            examenFinal = sc.nextDouble();
+            switch (opcion) {
+                case 1:
 
-            listAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2,zona, examenFinal));
+                    System.out.println("\t--*Agregar Notas*--");
 
-            System.out.println("Desa ingresar algo mas? s/n");
-            ingresaRegistro = sc.next().charAt(0);
-        } while (ingresaRegistro == 's');
-        
-        System.out.println("---------------------------------------------------");
-        System.out.println("Proximamente Acutalización con nuevo menu de opciones");
-        System.out.println("---------------------------------------------------\n");
-        
-        
-        System.out.println("Id\tNombre\tParcial1\tParcial2\tZona\tFinal\tTotal");
-        
-        for (Alumno alumno : listAlumnos) {
+                    System.out.println("---------------------------------------------------");
+                    System.out.println("Bienvenidos a la base de datos de Escuela Nacional");
+                    System.out.println("---------------------------------------------------\n");
+                    
+                    do {
 
-            
+                        System.out.println("\tIngresar datos de los estudiantes");
+                        System.out.print("Número de alumno: ");
+                        noAlumno = sc.nextInt();
+                        System.out.print("Nombre: ");
+                        nombre = sc.next();
+                        System.out.print("Apellido: ");
+                        apellido = sc.next();
+                        System.out.print("Carné: ");
+                        carnet = sc.nextInt();
+                        System.out.print("Nota Parcial Uno: ");
+                        parcial_1 = sc.nextDouble();
+                        System.out.print("Nota Parcial Dos: ");
+                        parcial_2 = sc.nextDouble();
+                        System.out.print("Zona: ");
+                        zona = sc.nextDouble();
+                        System.out.print("Examen Final: ");
+                        examenFinal = sc.nextDouble();
 
-            System.out.println(alumno.getNoAlumno()
-                    + "\t" + alumno.getNombre()
-                    + "\t" + alumno.getParcial_1()
-                    + "\t\t" + alumno.getParcial_2()
-                    + "\t\t" + alumno.getZona()
-                    + "\t" + alumno.getExamenFinal()
-                    + "\t" + alumno.getTotal());
-        }
+                        listAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2, zona, examenFinal));
+
+                        System.out.println("  --¿Desa agregar algún otro dato? s/n");
+                        System.out.print("Respuesta: ");
+                        ingresaRegistro = sc.next().charAt(0);
+                    } while (ingresaRegistro == 's');
+
+                    break;
+                case 2:
+                    System.out.println("\t---Ver Notas--- ");
+
+                    System.out.println("---------------------------------------------------");
+                    System.out.println("Proximamente Acutalización con nuevo menu de opciones");
+                    System.out.println("---------------------------------------------------\n");
+
+                    System.out.println("Id\tNombre\tParcial1\tParcial2\tZona\tFinal\tTotal\n");
+
+                    for (Alumno alumno : listAlumnos) {
+
+                        System.out.println(alumno.getNoAlumno() + "\t" + alumno.getNombre()
+                                + "\t" + alumno.getParcial_1() + "\t\t" + alumno.getParcial_2()
+                                + "\t\t" + alumno.getZona() + "\t" + alumno.getExamenFinal()
+                                + "\t" + alumno.getTotal());
+                    }
+                    break;
+
+            }
+        } while (opcion != 3);
 
     }
-
 }

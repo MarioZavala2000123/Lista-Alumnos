@@ -106,9 +106,7 @@ public class Alumno {
     public void setTotal(double total) {
         this.total = total;
     }
-    public void actualizarTotal(){
-        setTotal(parcial_1+parcial_2+examenFinal+zona);  
-    }
+   
     
 
 }
