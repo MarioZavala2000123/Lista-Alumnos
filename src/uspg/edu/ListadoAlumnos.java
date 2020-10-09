@@ -33,10 +33,13 @@ public class ListadoAlumnos {
         double examenFinal;
         double total;
         char ingresaRegistro = 'n';
-
+        
+        System.out.println("---------------------------------------------------");
+        System.out.println("Bienvenidos a la base de datos de Escuela Nacional");
+        System.out.println("---------------------------------------------------\n");
         do {
 
-            System.out.println("ingresar los que se le solicita:");
+            System.out.println("Ingresar datos de los estudiantes:");
             System.out.print("Número de alumno:");
             noAlumno = sc.nextInt();
             System.out.print("Nombre:");
@@ -54,27 +57,22 @@ public class ListadoAlumnos {
             System.out.print("Examen final:");
             examenFinal = sc.nextDouble();
 
-            listAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2, examenFinal));
+            listAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2,zona, examenFinal));
 
             System.out.println("Desa ingresar algo mas? s/n");
             ingresaRegistro = sc.next().charAt(0);
         } while (ingresaRegistro == 's');
-
+        
+        System.out.println("---------------------------------------------------");
+        System.out.println("Proximamente Acutalización con nuevo menu de opciones");
+        System.out.println("---------------------------------------------------\n");
+        
+        
         System.out.println("Id\tNombre\tParcial1\tParcial2\tZona\tFinal\tTotal");
+        
         for (Alumno alumno : listAlumnos) {
 
-            System.out.println(alumno.getNoAlumno()
-                    + "\t" + alumno.getNombre()
-                    + "\t" + alumno.getParcial_1()
-                    + "\t\t" + alumno.getParcial_2()
-                    + "\t\t" + alumno.getZona()
-                    + "\t" + alumno.getExamenFinal()
-                    + "\t" + alumno.getTotal());
-        }
-
-        for (Alumno alumno : listAlumnos) {
-
-            alumno.setZona(0);
+            
 
             System.out.println(alumno.getNoAlumno()
                     + "\t" + alumno.getNombre()
