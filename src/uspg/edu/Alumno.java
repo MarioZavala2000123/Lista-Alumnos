@@ -36,6 +36,10 @@ public class Alumno {
         this.zona=zona;
          this.total = parcial_1+parcial_2+zona+examenFinal;
     }
+
+    Alumno(double noAlumno, String nombre, String apellido, double carnet, double parcial_1, double parcial_2, double zona, double examenFinal) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public int getNoAlumno() {
         return noAlumno;
