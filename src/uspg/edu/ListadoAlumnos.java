@@ -112,16 +112,16 @@ public class ListadoAlumnos {
             System.out.println("Dato no se encuentra");
         }
     }
-    
-    public void eliminarValor(){
+
+    public void eliminarValor() {
         Scanner scn = new Scanner(System.in);
         double valor;
         int indice;
-        
+
         System.out.print("Valor a eliminar: ");
         valor = scn.nextDouble();
         indice = listaNumeros.indexOf(valor);
-        
+
         if (indice != -1) {
             listaNumeros.remove(indice);
             System.out.println("Dato eliminado");
@@ -129,33 +129,33 @@ public class ListadoAlumnos {
             System.out.println("Dato no se encuentra");
         }
     }
-    
-    public void insertarValor(){
+
+    public void insertarValor() {
         Scanner scn = new Scanner(System.in);
         double valor;
         int indice;
-        
+
         System.out.print("Valor a insertar: ");
-        valor=scn.nextDouble();
-        
+        valor = scn.nextDouble();
+
         System.out.print("Posicion donde desea insertar: ");
         indice = scn.nextInt();
         listaNumeros.add(indice, valor);
     }
-    
-    public void mostrarLista(){
+
+    public void mostrarLista() {
         if (listaNumeros.isEmpty()) {
             System.out.println("Elementos de la lista: ");
             /*
-            for (int i = 0: i < listaNumeros.size(); i++){
-            System.out.println(listaNumeros.get(i));
+             for (int i = 0: i < listaNumeros.size(); i++){
+             System.out.println(listaNumeros.get(i));
+             }
+             } else {
+             System.out.println("No existen valores en la lista");
+             }
+             */
         }
-        } else {
-            System.out.println("No existen valores en la lista");
-        }
-            */
     }
-    
     /*
      int noAlumno;
      String nombre;
