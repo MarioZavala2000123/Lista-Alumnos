@@ -14,26 +14,15 @@ import java.util.Scanner;
  * @author marioz
  */
 public class ListadoAlumnos {
-    /*
-     Menu
-     1. Ingreso notas
-     2. Listar
-     3. Modificar
-     1.id que desea modificar
-     seleccione el registro que desea modificar 
-     1.Nombre
-     2.Parcial Uno
-     3.Parcial Dos
-     4.Zona
-     5.Examen Final
-     4. Salir
-     */
 
-    ArrayList<Alumno> listaAlumnos;
+
+   // ArrayList<Alumno> listaAlumnos;
+    List<Alumno> listAlumnos = new ArrayList();
 
     public static void main(String[] args) {
         ListadoAlumnos lista = new ListadoAlumnos();
-        lista.listaAlumnos = new ArrayList();
+        lista.listAlumnos = new ArrayList();
+        //lista.listaAlumnos = new ArrayList();
         lista.Listado();
     }
 
@@ -114,7 +103,7 @@ public class ListadoAlumnos {
             System.out.print("Examen Final: ");
             examenFinal = sc.nextDouble();
 
-            listaAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2, zona, examenFinal));
+            listAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2, zona, examenFinal));
 
             System.out.println("  --¿Desa agregar algún otro dato? s/n");
             System.out.print("Respuesta: ");
@@ -132,7 +121,7 @@ public class ListadoAlumnos {
 
         System.out.println("Id\tNombre\tParcial1\tParcial2\tZona\tFinal\tTotal\n");
 
-        for (Alumno alumno : listaAlumnos) {
+        for (Alumno alumno : listAlumnos) {
 
             System.out.println(alumno.getNoAlumno() + "\t" + alumno.getNombre()
                     + "\t" + alumno.getParcial_1() + "\t\t" + alumno.getParcial_2()
@@ -147,52 +136,20 @@ public class ListadoAlumnos {
 
         Scanner scn = new Scanner(System.in);
         int opcion;
-        /*
-         3. Modificar
-         1.id que desea modificar
-         seleccione el registro que desea modificar 
-         1.Nombre
-         2.Parcial Uno
-         3.Parcial Dos
-         4.Zona
-         5.Examen Final
-         */
-
+        
         double noAlumno;
-        String nombre;
-        String apellido;
-        double carnet;
-        double parcial_1;
-        double parcial_2;
-        double zona;
-        double examenFinal;
-
-        double valor, nuevoValor;
-        int indice;
-
-        System.out.print("El número del alumno que desea modificar: ");
-        valor = scn.nextInt();
-
-        indice = listaAlumnos.indexOf(valor);
-
-        if (indice != -1) {
-
-            System.out.println("Nuevo Valor: ");
-            nuevoValor = scn.nextInt();
-
-           // listaAlumnos.set(indice, nuevoValor);
-           // listaAlumnos.set(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2, zona, examenFinal));
-        } else {
-            System.out.println("Dato no se encuentra");
-
-        }
+        String nombre, apellido;
+        double carnet, parcial_1, parcial_2, zona, examenFinal;
+        
+        String nuevoNom,nuevoApellido; 
+        double nuevocarnet, nuevoparcial_1, nuevoparcial_2, nuevozona, nuevoexamenFinal;
 
         System.out.println("Número del alumno que desea modificar");
         noAlumno = scn.nextDouble();
-
+        
+        
         if (noAlumno != 0) {
-            System.out.println("Número del alumno que desea modificar");
-            noAlumno = scn.nextDouble();
+            
             do {
                 System.out.println("-------*MENÚ*---------");
                 System.out.println("Seleccione la acción que desea realizar");
@@ -209,7 +166,19 @@ public class ListadoAlumnos {
                     case 1:
 
                         System.out.println("\t--Nombre--");
-
+                        
+                        System.out.print("Nuevo nombre: ");
+            nuevoNom = scn.next();
+             System.out.print("Nuevo apellido: ");
+            nuevoApellido = scn.next();
+            
+            listAlumnos.set(opcion, apellido);
+            
+            System.out.println("*******************");
+        System.out.println("El nombre anterior era: "+nombre+" "+apellido);
+        System.out.println("*******************");
+        System.out.println("El nombre se cambio por: "+nuevoNom+" "+nuevoApellido);
+        System.out.println("*******************");
                         break;
 
                     case 2:

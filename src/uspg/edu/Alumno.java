@@ -5,11 +5,16 @@
  */
 package uspg.edu;
 
+import java.util.Scanner;
+
 /**
  *
  * @author marioz
  */
 public class Alumno {
+    Scanner scn = new Scanner(System.in);
+    
+
     double noAlumno;
     String nombre;
     String apellido;
@@ -117,7 +122,10 @@ public class Alumno {
         this.total = total;
     }
    
+    public void noAlumno() {
+        noAlumno = scn.nextInt();
+    }
     
-
+   
 }
 
