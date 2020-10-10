@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 public class ListadoAlumnos {
 
+    public static Scanner sc = new Scanner(System.in);
     List<Alumno> listAlumnos = new ArrayList();
 
     public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class ListadoAlumnos {
     }
 
     public void Listado() {
-        Scanner sc = new Scanner(System.in);
+     
         int opcion;
 
         do {
@@ -64,7 +65,7 @@ public class ListadoAlumnos {
 //-------------------------------------------------------------------------------
 
     public void ingresarValor() {
-        Scanner sc = new Scanner(System.in);
+      
 
         double noAlumno;
         String nombre;
@@ -94,44 +95,52 @@ public class ListadoAlumnos {
             System.out.print("Nota Parcial Uno: ");
             parcial_1 = sc.nextDouble();
 
-            if (parcial_1 != -1) {
+            if (parcial_1 <= 0 || parcial_1 <= 20) {
+
+                System.out.println("Nota no valida, por favor ingrese una nota "
+                        + "del 0 al 20");
+
+                System.out.print("Nota Parcial Uno: ");
+                parcial_1 = sc.nextDouble();
+            }
+
+            System.out.print("Nota Parcial Dos: ");
+            parcial_2 = sc.nextDouble();
+
+            if (parcial_2 <= 0 || parcial_2 <= 20) {
+
+                System.out.println("Nota no valida, por favor ingrese una nota "
+                        + "del 0 al 20");
 
                 System.out.print("Nota Parcial Dos: ");
                 parcial_2 = sc.nextDouble();
+            }
 
-                if (parcial_2 != -1) {
+            System.out.print("Zona: ");
+            zona = sc.nextDouble();
 
-                    System.out.print("Zona: ");
-                    zona = sc.nextDouble();
+            if (zona <= 0 || zona <= 30) {
 
-                    if (zona != -1) {
+                System.out.println("Nota no valida, por favor ingrese una nota "
+                        + "del 0 al 30");
 
-                        System.out.print("Examen Final: ");
-                        examenFinal = sc.nextDouble();
+                System.out.print("Zona: ");
+                zona = sc.nextDouble();
+            }
 
-                        if (examenFinal != -1) {
+            System.out.print("Examen Final: ");
+            examenFinal = sc.nextDouble();
 
-                            listAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2, zona, examenFinal));
+            if (examenFinal <= 0 || examenFinal <= 20) {
 
-                        } else {
-                            System.out.println("Nota no valida, por favor ingrese una nota "
-                                    + "del 0 al 30");
-                        }
-
-                    } else {
-                        System.out.println("Nota no valida, por favor ingrese una nota "
-                                + "del 0 al 30");
-                    }
-
-                } else {
-                    System.out.println("Nota no valida, por favor ingrese una nota "
-                            + "del 0 al 20");
-                }
-
-            } else {
                 System.out.println("Nota no valida, por favor ingrese una nota "
                         + "del 0 al 20");
+
+                System.out.print("Examen Final: ");
+                examenFinal = sc.nextDouble();
             }
+
+            listAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2, zona, examenFinal));
 
             System.out.println("  --¿Desa agregar algún otro dato? s/n");
             System.out.print("Respuesta: ");
@@ -155,7 +164,7 @@ public class ListadoAlumnos {
             System.out.println(alumno.getNoAlumno() + "\t" + alumno.getNombre()
                     + "\t" + alumno.getParcial_1() + "\t\t" + alumno.getParcial_2()
                     + "\t\t" + alumno.getZona() + "\t" + alumno.getExamenFinal()
-                    + "\t" + alumno.getTotal()+"\n");
+                    + "\t" + alumno.getTotal() + "\n");
         }
 
     }
@@ -163,8 +172,8 @@ public class ListadoAlumnos {
 
     public void modificarDatos() {
 
-        Scanner scn = new Scanner(System.in);
-        int opcion;
+        
+        int opcion2;
 
         double noAlumno;
         String nombre, apellido;
@@ -173,69 +182,63 @@ public class ListadoAlumnos {
         String nuevoNom, nuevoApellido;
         double nuevocarnet, nuevoparcial_1, nuevoparcial_2, nuevozona, nuevoexamenFinal;
 
-        System.out.println("Número del alumno que desea modificar");
-        noAlumno = scn.nextDouble();
+        //     System.out.println("Número del alumno que desea modificar");
+        //     noAlumno = scn.nextDouble();
+        //     if (noAlumno != 0) {
+        do {
+            System.out.println("-------*MENÚ*---------");
+            System.out.println("Seleccione la acción que desea realizar");
+            System.out.println("1. Nombre");
+            System.out.println("2. Parcial Uno");
+            System.out.println("3. Parcial Dos");
+            System.out.println("4. Zona");
+            System.out.println("5. Examen Final");
+            System.out.println("6. Salir");
+            System.out.print("--Opción: ");
+            opcion2 = sc.nextInt();
 
-        if (noAlumno != 0) {
+            switch (opcion2) {
+                case 1:
 
-            do {
-                System.out.println("-------*MENÚ*---------");
-                System.out.println("Seleccione la acción que desea realizar");
-                System.out.println("1. Nombre");
-                System.out.println("2. Parcial Uno");
-                System.out.println("3. Parcial Dos");
-                System.out.println("4. Zona");
-                System.out.println("5. Examen Final");
-                System.out.println("6. Salir");
-                System.out.print("--Opción: ");
-                opcion = scn.nextInt();
+                    System.out.println("\t--Nombre--");
 
-                switch (opcion) {
-                    case 1:
+                    //    System.out.print("Nuevo nombre: ");
+                    //    nombre = scn.next();
+                    //    System.out.print("Nuevo apellido: ");
+                    //     apellido = scn.next();
+                    System.out.println("*******************");
+                    //  System.out.println("El nombre anterior era: " + nombre + " " + apellido);
+                    System.out.println("*******************");
+                    //    System.out.println("El nombre se cambio por: " + nuevoNom + " " + nuevoApellido);
+                    System.out.println("*******************");
+                    break;
 
-                        System.out.println("\t--Nombre--");
+                case 2:
+                    System.out.println("\t---Parcial Uno--- ");
 
-                        System.out.print("Nuevo nombre: ");
-                        nuevoNom = scn.next();
-                        System.out.print("Nuevo apellido: ");
-                        nuevoApellido = scn.next();
+                    break;
 
-                       // listAlumnos.set(opcion, apellido);
+                case 3:
+                    System.out.println("\t---Parcial Dos---");
 
-                        System.out.println("*******************");
-                      //  System.out.println("El nombre anterior era: " + nombre + " " + apellido);
-                        System.out.println("*******************");
-                        System.out.println("El nombre se cambio por: " + nuevoNom + " " + nuevoApellido);
-                        System.out.println("*******************");
-                        break;
+                    break;
 
-                    case 2:
-                        System.out.println("\t---Parcial Uno--- ");
+                case 6:
+                    System.out.println("\t---Zona---");
 
-                        break;
+                    break;
 
-                    case 3:
-                        System.out.println("\t---Parcial Dos---");
+                case 5:
+                    System.out.println("\t---Examen Final---");
 
-                        break;
+                    break;
+            }
 
-                    case 6:
-                        System.out.println("\t---Zona---");
+        } while (opcion2 != 6);
 
-                        break;
-
-                    case 5:
-                        System.out.println("\t---Examen Final---");
-
-                        break;
-                }
-
-            } while (opcion != 6);
-
-        } else {
-            System.out.println("Dato no se encuentra");
-
-        }
+        //  } else {
+        //     System.out.println("Dato no se encuentra");
+        // }
     }
 
 }
