@@ -5,6 +5,8 @@ Nombre:               Carné:
 Otto                   2000136 
 Nombre                Carnè:
 Emmanuel Zapata        2000196
+Nombre:               Carne:
+Bryan Sandoval         2000137
  */
 package uspg.edu;
 
