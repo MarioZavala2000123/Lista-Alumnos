@@ -15,14 +15,11 @@ import java.util.Scanner;
  */
 public class ListadoAlumnos {
 
-
-   // ArrayList<Alumno> listaAlumnos;
     List<Alumno> listAlumnos = new ArrayList();
 
     public static void main(String[] args) {
         ListadoAlumnos lista = new ListadoAlumnos();
         lista.listAlumnos = new ArrayList();
-        //lista.listaAlumnos = new ArrayList();
         lista.Listado();
     }
 
@@ -87,27 +84,59 @@ public class ListadoAlumnos {
 
             System.out.println("\tIngresar datos de los estudiantes");
             System.out.print("Número de alumno: ");
-            noAlumno = sc.nextDouble();
+            noAlumno = sc.nextInt();
             System.out.print("Nombre: ");
             nombre = sc.next();
             System.out.print("Apellido: ");
             apellido = sc.next();
             System.out.print("Carné: ");
-            carnet = sc.nextDouble();
+            carnet = sc.nextInt();
             System.out.print("Nota Parcial Uno: ");
             parcial_1 = sc.nextDouble();
-            System.out.print("Nota Parcial Dos: ");
-            parcial_2 = sc.nextDouble();
-            System.out.print("Zona: ");
-            zona = sc.nextDouble();
-            System.out.print("Examen Final: ");
-            examenFinal = sc.nextDouble();
 
-            listAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2, zona, examenFinal));
+            if (parcial_1 != -1) {
+
+                System.out.print("Nota Parcial Dos: ");
+                parcial_2 = sc.nextDouble();
+
+                if (parcial_2 != -1) {
+
+                    System.out.print("Zona: ");
+                    zona = sc.nextDouble();
+
+                    if (zona != -1) {
+
+                        System.out.print("Examen Final: ");
+                        examenFinal = sc.nextDouble();
+
+                        if (examenFinal != -1) {
+
+                            listAlumnos.add(new Alumno(noAlumno, nombre, apellido, carnet, parcial_1, parcial_2, zona, examenFinal));
+
+                        } else {
+                            System.out.println("Nota no valida, por favor ingrese una nota "
+                                    + "del 0 al 30");
+                        }
+
+                    } else {
+                        System.out.println("Nota no valida, por favor ingrese una nota "
+                                + "del 0 al 30");
+                    }
+
+                } else {
+                    System.out.println("Nota no valida, por favor ingrese una nota "
+                            + "del 0 al 20");
+                }
+
+            } else {
+                System.out.println("Nota no valida, por favor ingrese una nota "
+                        + "del 0 al 20");
+            }
 
             System.out.println("  --¿Desa agregar algún otro dato? s/n");
             System.out.print("Respuesta: ");
             ingresaRegistro = sc.next().charAt(0);
+
         } while (ingresaRegistro == 's');
 
     }
@@ -126,7 +155,7 @@ public class ListadoAlumnos {
             System.out.println(alumno.getNoAlumno() + "\t" + alumno.getNombre()
                     + "\t" + alumno.getParcial_1() + "\t\t" + alumno.getParcial_2()
                     + "\t\t" + alumno.getZona() + "\t" + alumno.getExamenFinal()
-                    + "\t" + alumno.getTotal());
+                    + "\t" + alumno.getTotal()+"\n");
         }
 
     }
@@ -136,20 +165,19 @@ public class ListadoAlumnos {
 
         Scanner scn = new Scanner(System.in);
         int opcion;
-        
+
         double noAlumno;
         String nombre, apellido;
         double carnet, parcial_1, parcial_2, zona, examenFinal;
-        
-        String nuevoNom,nuevoApellido; 
+
+        String nuevoNom, nuevoApellido;
         double nuevocarnet, nuevoparcial_1, nuevoparcial_2, nuevozona, nuevoexamenFinal;
 
         System.out.println("Número del alumno que desea modificar");
         noAlumno = scn.nextDouble();
-        
-        
+
         if (noAlumno != 0) {
-            
+
             do {
                 System.out.println("-------*MENÚ*---------");
                 System.out.println("Seleccione la acción que desea realizar");
@@ -166,19 +194,19 @@ public class ListadoAlumnos {
                     case 1:
 
                         System.out.println("\t--Nombre--");
-                        
+
                         System.out.print("Nuevo nombre: ");
-            nuevoNom = scn.next();
-             System.out.print("Nuevo apellido: ");
-            nuevoApellido = scn.next();
-            
-            listAlumnos.set(opcion, apellido);
-            
-            System.out.println("*******************");
-        System.out.println("El nombre anterior era: "+nombre+" "+apellido);
-        System.out.println("*******************");
-        System.out.println("El nombre se cambio por: "+nuevoNom+" "+nuevoApellido);
-        System.out.println("*******************");
+                        nuevoNom = scn.next();
+                        System.out.print("Nuevo apellido: ");
+                        nuevoApellido = scn.next();
+
+                       // listAlumnos.set(opcion, apellido);
+
+                        System.out.println("*******************");
+                      //  System.out.println("El nombre anterior era: " + nombre + " " + apellido);
+                        System.out.println("*******************");
+                        System.out.println("El nombre se cambio por: " + nuevoNom + " " + nuevoApellido);
+                        System.out.println("*******************");
                         break;
 
                     case 2:
