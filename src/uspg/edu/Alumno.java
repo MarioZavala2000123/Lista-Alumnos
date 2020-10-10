@@ -5,14 +5,12 @@
  */
 package uspg.edu;
 
-import java.util.Scanner;
-
 /**
  *
  * @author marioz
  */
 public class Alumno {
-    int noAlumno;
+    double noAlumno;
     String nombre;
     String apellido;
     double carnet;
@@ -24,7 +22,7 @@ public class Alumno {
     
     Alumno(){}
 
-    public Alumno(int noAlumno, String nombre, String apellido, double carnet,
+    public Alumno(double noAlumno, String nombre, String apellido, double carnet,
             double parcial_1, double parcial_2,double zona, double examenFinal) {
         this.noAlumno = noAlumno;
         this.nombre = nombre;
@@ -37,10 +35,16 @@ public class Alumno {
          this.total = parcial_1+parcial_2+zona+examenFinal;
     }
 
-    Alumno(double noAlumno, String nombre, String apellido, double carnet, double parcial_1, double parcial_2, double zona, double examenFinal) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double getNoAlumno() {
+        return noAlumno;
+    }
+
+    public void setNoAlumno(double noAlumno) {
+        this.noAlumno = noAlumno;
     }
     
+    
+   /* 
     public int getNoAlumno() {
         return noAlumno;
     }
@@ -48,7 +52,7 @@ public class Alumno {
     public void setNoAlumno(int noAlumno) {
         this.noAlumno = noAlumno;
     }
-
+*/
     public String getNombre() {
         return nombre;
     }
