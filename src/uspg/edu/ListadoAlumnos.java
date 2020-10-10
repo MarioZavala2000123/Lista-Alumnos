@@ -1,6 +1,8 @@
 /*
 Nombre:               Carné:
 Mario Zavala           2000123
+Nombre:               Carné:
+Otto                   2000136 
  */
 package uspg.edu;
 
