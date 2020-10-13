@@ -35,7 +35,7 @@ public class ListadoAlumnos {
         do {
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++");
             System.out.println("   -------*MENÚ PRINCIPAL*---------");
-            System.out.println("Seleccione la acción que desea realizar");
+            System.out.println(" Seleccione la acción que desea realizar");
             System.out.println("1. Ingresar datos alumnos");
             System.out.println("2. Mostrar información ingresada ");
             System.out.println("3. Modificar Datos");
@@ -204,9 +204,9 @@ public class ListadoAlumnos {
                     condicional = true;
 
                     do {
-                        System.out.println("\t--Modificar Datos--");
-                        System.out.println("-------*MENÚ*---------");
-                        System.out.println("Seleccione la acción que desea realizar");
+                        System.out.println(" \t--Modificar Datos--");
+                        System.out.println("   -------*MENÚ*---------");
+                        System.out.println(" Seleccione el dato que desea modificar");
                         System.out.println("1. Carné");
                         System.out.println("2. Nombre y Apellido");
                         System.out.println("3. Parcial Uno");
@@ -346,6 +346,132 @@ public class ListadoAlumnos {
 //-----------------------------------------------------------------------------------------------------------------------------
 
     public void eliminarDatos() {
+
+        int noAlumno2;
+        int indice = 0;
+        int eliminarNom;
+        boolean condicional = false;
+
+        do {
+            System.out.print("Número del alumno que desea modificar: ");
+            noAlumno2 = sc.nextInt();
+
+            for (Alumno alumno : listAlumnos) {
+
+                if (alumno.getNoAlumno() == noAlumno2) {
+                    int opcion2;
+                    condicional = true;
+
+                    do {
+                        System.out.println(" \t--Eliminar Datos--");
+                        System.out.println("   -------*MENÚ*---------");
+                        System.out.println(" Seleccione el dato que desa eliminar");
+                        System.out.println("1. Carné");
+                        System.out.println("2. Nombre y Apellido");
+                        System.out.println("3. Parcial Uno");
+                        System.out.println("4. Parcial Dos");
+                        System.out.println("5. Zona");
+                        System.out.println("6. Examen Final");
+                        System.out.println("7. Salir");
+                        System.out.print("--Opción: ");
+                        opcion2 = sc.nextInt();
+
+                        switch (opcion2) {
+
+                            case 1:
+                                System.out.println("\t--Carné--");
+
+                                listAlumnos.remove(carnet);
+                                System.out.println("Carné eliminado con éxito");
+
+//                                listAlumnos.get(indice).setCarnet(carnet);
+                                break;
+
+                            case 2:
+
+                                System.out.println("\t--Nombre y Apellido--");
+
+                                System.out.println("1. Eliminar Nombre");
+                                System.out.println("2. Eliminar Apellido");
+                                System.out.print("--Opción: ");
+                                eliminarNom = sc.nextInt();
+
+                                if (eliminarNom != 1) {
+
+                                    listAlumnos.remove(nombre);
+                                    System.out.println("Nombre eliminado con éxito");
+
+                                    listAlumnos.get(indice).setNombre(nombre);
+
+                                } else {
+
+                                    listAlumnos.remove(apellido);
+                                    System.out.println("Apellido eliminado con éxito");
+
+                                    listAlumnos.get(indice).setApellido(apellido);
+                                }
+
+                                break;
+
+                            case 3:
+                                System.out.println("\t---Parcial Uno--- ");
+
+                                listAlumnos.remove(parcial_1);
+                                System.out.println("Parcial Uno eliminado con éxito");
+
+                                listAlumnos.get(indice).setParcial_1(parcial_1);
+                                listAlumnos.get(indice).setTotal(alumno.getParcial_1() + alumno.getParcial_2()
+                                        + alumno.getExamenFinal() + alumno.getZona());
+                                break;
+
+                            case 4:
+                                System.out.println("\t---Parcial Dos---");
+
+                                listAlumnos.remove(parcial_2);
+                                System.out.println("Parcial Dos eliminado con éxito");
+
+                                listAlumnos.get(indice).setParcial_2(parcial_2);
+                                listAlumnos.get(indice).setTotal(alumno.getParcial_1() + alumno.getParcial_2()
+                                        + alumno.getExamenFinal() + alumno.getZona());
+                                break;
+
+                            case 5:
+                                System.out.println("\t---Zona---");
+
+                                listAlumnos.remove(zona);
+                                System.out.println("Zona eliminada con éxito");
+
+                                listAlumnos.get(indice).setZona(zona);
+                                listAlumnos.get(indice).setTotal(alumno.getParcial_1() + alumno.getParcial_2()
+                                        + alumno.getExamenFinal() + alumno.getZona());
+                                break;
+
+                            case 6:
+                                System.out.println("\t---Examen Final---");
+
+                                listAlumnos.remove(examenFinal);
+                                System.out.println("Examen Final eliminado con éxito");
+
+                                listAlumnos.get(indice).setExamenFinal(examenFinal);
+                                listAlumnos.get(indice).setTotal(alumno.getParcial_1() + alumno.getParcial_2()
+                                        + alumno.getExamenFinal() + alumno.getZona());
+                                break;
+                        }
+
+                    } while (opcion2 != 7);
+
+                }
+
+                indice++;
+
+            }
+
+            if (condicional == false) {
+                System.out.println("--Número del alumno es incorrecto");
+
+            }
+
+        } while (condicional == false);
 
     }
 
