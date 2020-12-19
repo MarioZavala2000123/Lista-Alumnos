@@ -170,12 +170,12 @@ public class ListadoAlumnos {
         System.out.println("Proximamente Acutalización con nuevo menu de opciones");
         System.out.println("---------------------------------------------------\n");
 
-        System.out.println("Id\tNombre \tApellido\tParcial1\tParcial2\tZona \tFinal \tTotal\n");
+        System.out.println("Id\tNombre \tApellido\tCarné\tParcial1\tParcial2\tZona \tFinal \tTotal\n");
 
         for (Alumno alumno : listAlumnos) {
 
             System.out.println(alumno.getNoAlumno() + "\t" + alumno.getNombre() + " \t" + alumno.getApellido()
-                    + "\t" + alumno.getParcial_1() + "  \t\t" + alumno.getParcial_2()
+                    + "\t" + alumno.getCarnet() + "\t" + alumno.getParcial_1() + "  \t\t" + alumno.getParcial_2()
                     + "\t\t" + alumno.getZona() + "  \t" + alumno.getExamenFinal()
                     + "  \t" + alumno.getTotal() + "\n");
         }
@@ -380,11 +380,13 @@ public class ListadoAlumnos {
 
                             case 1:
                                 System.out.println("\t--Carné--");
+                                
+                             //   indice = listAlumnos.indexOf(carnet);
 
                                 listAlumnos.remove(carnet);
                                 System.out.println("Carné eliminado con éxito");
 
-//                                listAlumnos.get(indice).setCarnet(carnet);
+                                listAlumnos.get(indice).setCarnet(carnet);
                                 break;
 
                             case 2:
